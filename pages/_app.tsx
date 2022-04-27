@@ -1,8 +1,23 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import Head from "next/head";
+import { AppShell } from "@mantine/core";
+import { NavbarSimple } from "../components/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Head>
+        <title>DocApp</title>
+        <meta name="description" content="Aplicación documental" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <AppShell navbar={<NavbarSimple />}>
+        <Component {...pageProps} />
+      </AppShell>
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
