@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { AppShell } from "@mantine/core";
 import { NavbarSimple } from "../components/Navbar";
+import { HeaderResponsive } from "../components/Header";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <AppShell navbar={<NavbarSimple />}>
+      <AppShell header={<HeaderResponsive />} navbar={<NavbarSimple />}>
         <Component {...pageProps} />
       </AppShell>
     </>

@@ -26,6 +26,8 @@ const useStyles = createStyles((theme, _params, getRef) => {
           ? theme.colors.dark[4]
           : theme.colors.gray[2]
       }`,
+      marginBottom: theme.spacing.xl,
+      paddingBottom: theme.spacing.xl,
     },
 
     link: {
@@ -117,8 +119,8 @@ export function NavbarSimple() {
     <Navbar style={{ height: "full" }} width={{ sm: 300 }} p="md">
       <Navbar.Section grow>
         <Group className={classes.header} position="apart">
-          <p>Logo</p>
-          <Code sx={{ fontWeight: 700 }}>v3.1.2</Code>
+          <p>Menú</p>
+          <Code sx={{ fontWeight: 700 }}>v0.1</Code>
         </Group>
         {links}
       </Navbar.Section>
