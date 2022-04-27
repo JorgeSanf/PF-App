@@ -3,16 +3,16 @@ import { useState } from "react";
 import TextEditor from "../../components/Editor";
 
 const Editor = () => {
-  const initialValue = "<p>Comparta su <b>sabiduría</b></p>";
+  const initialValue = "<p><i>Comparta su <b>sabiduría</b>...</i></p>";
   const [value, onChange] = useState(initialValue);
   return (
     <>
       <TextEditor
-        style={{ height: "67%", width: "67%", margin: "auto" }}
+        style={{ height: "67%", width: "67%", marginLeft: "8%" }}
         value={value}
         onChange={onChange}
       />
-      <Button style={{ marginLeft: "50%", marginTop: "10px" }}>Guardar</Button>
+      <Button style={{ marginLeft: "60%", marginTop: "10px" }}>Guardar</Button>
     </>
   );
 };

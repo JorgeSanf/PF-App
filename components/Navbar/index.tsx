@@ -103,7 +103,7 @@ const data = [
 
 export function NavbarSimple() {
   const { classes, cx } = useStyles();
-  const [active, setActive] = useState("Billing");
+  const [active, setActive] = useState("Inicio");
 
   const links = data.map((item) => (
     <Link href={item.link} key={item.label}>
