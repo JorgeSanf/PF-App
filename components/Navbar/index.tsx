@@ -1,5 +1,12 @@
 import { Navbar, Group, Code, createStyles } from "@mantine/core";
-import { Notes, Home, Edit, UserCircle, Logout } from "tabler-icons-react";
+import {
+  Notes,
+  Home,
+  Edit,
+  UserCircle,
+  Logout,
+  FileCode,
+} from "tabler-icons-react";
 //import { Logo } from "./Logo";
 import React, { useState } from "react";
 import Link from "next/link";
@@ -90,7 +97,8 @@ const useStyles = createStyles((theme, _params, getRef) => {
 const data = [
   { link: "/", label: "Inicio", icon: Home },
   { link: "/editor", label: "Editor", icon: Edit },
-  { link: "/temas", label: "Temas", icon: Notes },
+  { link: "/documentos", label: "Documentos", icon: Notes },
+  { link: "/temas", label: "Temas", icon: FileCode },
 ];
 
 export function NavbarSimple() {
@@ -98,12 +106,11 @@ export function NavbarSimple() {
   const [active, setActive] = useState("Billing");
 
   const links = data.map((item) => (
-    <Link href={item.link}>
+    <Link href={item.link} key={item.label}>
       <a
         className={cx(classes.link, {
           [classes.linkActive]: item.label === active,
         })}
-        key={item.label}
         onClick={(event) => {
           //event.preventDefault();
           setActive(item.label);

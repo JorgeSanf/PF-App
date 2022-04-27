@@ -1,4 +1,4 @@
-import { Doc } from "./Doc";
+import { Doc } from "../../types/Doc";
 
 interface ListaDocsProps {
   docs: Doc[];

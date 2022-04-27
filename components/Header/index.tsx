@@ -5,8 +5,6 @@ import {
   Container,
   Group,
   Burger,
-  Paper,
-  Transition,
   ActionIcon,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";

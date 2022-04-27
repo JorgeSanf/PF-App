@@ -11,3 +11,5 @@ export type entrada = {
   titulo: string;
   contenido: string;
 }
+
+export default Doc;

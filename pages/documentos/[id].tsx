@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { Doc } from "./Doc";
+import { Doc } from "../../types/Doc";
 
 export default function Documento({ doc }: { doc: Doc }) {
   const router = useRouter();
