@@ -20,13 +20,22 @@ export default function Documentos({ temas }: { temas: Array<string> }) {
 }
 
 export async function getServerSideProps() {
-  const url = "https://pf-api-sp.azurewebsites.net/docus/api/temas";
-  const response = await fetch(url);
-  const data = await response.json();
+  try {
+    const url = "https://pf-api-sp.azurewebsites.net/docus/api/temas";
+    const response = await fetch(url);
+    const data = await response.json();
 
-  return {
-    props: {
-      temas: data,
-    },
-  };
+    return {
+      props: {
+        temas: data,
+      },
+    };
+  } catch {
+    console.log("fallo fetch");
+    return {
+      props: {
+        temas: [],
+      },
+    };
+  }
 }

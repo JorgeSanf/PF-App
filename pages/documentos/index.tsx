@@ -36,5 +36,10 @@ export async function getServerSideProps() {
     };
   } catch {
     console.log("fallo fetch");
+    return {
+      props: {
+        docs: [],
+      },
+    };
   }
 }

@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>DocApp</title>
         <meta name="description" content="Aplicación documental" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/code.ico" />
       </Head>
 
       <AppShell header={<HeaderResponsive />} navbar={<NavbarSimple />}>
