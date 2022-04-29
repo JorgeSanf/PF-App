@@ -19,7 +19,7 @@ export default function Documentos({ temas }: { temas: Array<string> }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     const url = "https://pf-api-sp.azurewebsites.net/docus/api/temas";
     const response = await fetch(url);
