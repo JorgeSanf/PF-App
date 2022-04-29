@@ -7,7 +7,7 @@ interface GuardarBlobProps {
 }
 
 export function Guardar({ html, topic, titol }: GuardarBlobProps) {
-  const link = `https://dochtml.blob.core.windows.net/${titol}.html`;
+  const link = `https://dochtml.blob.core.windows.net/$web/${titol}.html`;
 
   console.log(titol, topic, html);
 

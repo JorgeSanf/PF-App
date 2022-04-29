@@ -1,14 +1,29 @@
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { Doc } from "../../types/Doc";
 
 export default function Documento({ doc }: { doc: Doc }) {
   const router = useRouter();
   const { id } = router.query;
+  const [html, setHtml] = useState<any>();
+
+  useEffect(() => {
+    //fetch(doc.enlace).then((response) => ;
+    const recuperarHTML = async () => {
+      const resp = await fetch(doc.enlace);
+      resp.text().then((text) => {
+        setHtml(text);
+      });
+    };
+    recuperarHTML();
+  }, []);
+
   return (
     <>
-      <p>{doc.titulo}</p>
-      <p>{doc.tema}</p>
-      <p>{doc.autor}</p>
+      <h1>{doc.titulo}</h1>
+      <h2>{doc.tema}</h2>
+      <h3>{doc.autor}</h3>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
     </>
   );
 }
