@@ -12,6 +12,7 @@ export default function Documento({ doc }: { doc: Doc }) {
     const recuperarHTML = async () => {
       const resp = await fetch(doc.enlace);
       resp.text().then((text) => {
+        console.log(text);
         setHtml(text);
       });
     };

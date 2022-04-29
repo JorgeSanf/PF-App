@@ -8,7 +8,10 @@ export function ModalGuardar({ html }: { html: string }) {
   const [titol, setTitol] = useState("");
   const [topic, setTopic] = useState("");
 
-  console.log(html);
+  const estadoInicial = () => {
+    setTitol("");
+    setTopic("");
+  };
 
   return (
     <>
@@ -37,6 +40,7 @@ export function ModalGuardar({ html }: { html: string }) {
               onClick={() => {
                 Guardar({ titol, topic, html });
                 setOpened(false);
+                estadoInicial();
               }}
             >
               Enviar
