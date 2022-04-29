@@ -7,7 +7,7 @@ interface GuardarBlobProps {
 }
 
 export function Guardar({ html, topic, titol }: GuardarBlobProps) {
-  const link = "https://dochtml.blob.core.windows.net/" + titol + ".html";
+  const link = `https://dochtml.blob.core.windows.net/${titol}.html`;
 
   console.log(titol, topic, html);
 
@@ -32,6 +32,8 @@ export function Guardar({ html, topic, titol }: GuardarBlobProps) {
     console.log(response);
   };
 
+  console.log(link);
+
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -44,9 +46,12 @@ export function Guardar({ html, topic, titol }: GuardarBlobProps) {
   };
 
   const guardarDoc = () => {
-    fetch("https://pf-api-sp.azurewebsites.net/docus/api/add", requestOptions)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    fetch(
+      "https://pf-api-sp.azurewebsites.net/docus/api/add",
+      requestOptions
+    ).then((response) => console.log(response));
+    //.then((response) => response.json());
+    //.then((data) => console.log(data));
   };
 
   guardarBlob();

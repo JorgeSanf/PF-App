@@ -4,7 +4,13 @@ import { Doc } from "../../types/Doc";
 export default function Documento({ doc }: { doc: Doc }) {
   const router = useRouter();
   const { id } = router.query;
-  return <p>{doc.titulo}</p>;
+  return (
+    <>
+      <p>{doc.titulo}</p>
+      <p>{doc.tema}</p>
+      <p>{doc.autor}</p>
+    </>
+  );
 }
 
 export async function getServerSideProps({ params }: any) {

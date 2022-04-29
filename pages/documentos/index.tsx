@@ -13,7 +13,7 @@ export default function ListaDocumentos({ docs }: ListaDocsProps) {
       {docs.map((doc: Doc) => {
         return (
           <div key={doc.id}>
-            <p>{doc.titulo}</p>
+            <a href={"/documentos/" + doc.id}>{doc.titulo}</a>
           </div>
         );
       })}
@@ -21,7 +21,8 @@ export default function ListaDocumentos({ docs }: ListaDocsProps) {
   );
 }
 
-export async function getStaticProps() {//getServerSideProps() {
+export async function getStaticProps() {
+  //getServerSideProps() {
   const url = "https://pf-api-sp.azurewebsites.net/docus/api";
 
   try {
