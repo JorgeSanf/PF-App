@@ -21,7 +21,7 @@ export default function ListaDocumentos({ docs }: ListaDocsProps) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {//getServerSideProps() {
   const url = "https://pf-api-sp.azurewebsites.net/docus/api";
 
   try {

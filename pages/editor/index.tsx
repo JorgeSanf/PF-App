@@ -1,37 +1,16 @@
-import { Button } from "@mantine/core";
 import { useState } from "react";
 import TextEditor from "../../components/Editor";
-import {
-  BlobServiceClient,
-  HttpRequestBody,
-  StorageSharedKeyCredential,
-} from "@azure/storage-blob";
+import { Container } from "tabler-icons-react";
+import { ModalGuardar } from "./../../components/Modal";
 
 //import { RichTextEditor } from "@mantine/rte";
 
 const Editor = () => {
   const initialValue = "<p><i>Comparta su <b>sabiduría</b>...</i></p>";
   const [value, onChange] = useState(initialValue);
+  //const [titulo, setTitulo] = useState("");
 
-  const guardarDoc = async () => {
-    const htmldoc = "<!DOCTYPE html><html><body>" + value + "</body></html>";
-    const blobSasUrl = "ah";
-    const account = "dochtml";
-    const url = "https://dochtml.blob.core.windows.net/";
-
-    const body: HttpRequestBody = value;
-
-    const blobServClient = new BlobServiceClient(url + blobSasUrl);
-    console.log(blobServClient);
-    const blobContClient = blobServClient.getContainerClient("$web");
-    console.log(blobContClient);
-    const response = blobContClient.uploadBlockBlob(
-      "Prueba.html",
-      body,
-      Buffer.byteLength(value)
-    );
-    console.log(htmldoc);
-  };
+  //let titulo = '';
 
   return (
     <>
@@ -41,12 +20,7 @@ const Editor = () => {
         onChange={onChange}
         //onImageUpload={handleImageUpload}
       />
-      <Button
-        onClick={guardarDoc}
-        style={{ marginLeft: "60%", marginTop: "10px" }}
-      >
-        Guardar
-      </Button>
+      <ModalGuardar html={value} />
     </>
   );
 };

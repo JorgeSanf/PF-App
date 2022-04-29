@@ -5,6 +5,7 @@ export type Doc = {
   autor: string;
   texto?: string;
   entradas?: entrada[];
+  enlace?: string;
 };
 
 export type entrada = {
