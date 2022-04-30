@@ -10,6 +10,7 @@ export default function Documentos({ temas }: { temas: Array<string> }) {
               height={"200%"}
               width={"200%"}
               src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tema.toLowerCase()}/${tema.toLowerCase()}-original.svg`}
+              //src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tema.toLowerCase()}/${tema.toLowerCase()}-plain.svg`}
               alt={tema}
             />
           </a>

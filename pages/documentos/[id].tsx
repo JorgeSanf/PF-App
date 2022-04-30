@@ -25,6 +25,7 @@ export default function Documento({ doc }: { doc: Doc }) {
         <h1>{doc.titulo}</h1>
         <h3>{doc.tema}</h3>
         <h3>{doc.autor}</h3>
+        <br />
       </div>
 
       <TypographyStylesProvider>

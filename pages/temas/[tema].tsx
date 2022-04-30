@@ -1,4 +1,4 @@
-import { Grid } from "@mantine/core";
+import { Center, Grid } from "@mantine/core";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Doc } from "../../types/Doc";
@@ -7,11 +7,11 @@ export default function Tema({ docs }: { docs: Array<Doc> }) {
   const router = useRouter();
   const { id } = router.query;
 
-  console.log(docs);
-
   return (
     <>
-      <h2>Documentos sobre {docs[0].tema}</h2>
+      <Center style={{ marginLeft: "-20%" }}>
+        <h2>Documentos sobre {docs[0].tema}</h2>
+      </Center>
       <Grid>
         {docs.map((doc) => {
           return (
@@ -37,7 +37,6 @@ export default function Tema({ docs }: { docs: Array<Doc> }) {
 }
 
 export async function getServerSideProps({ params }: any) {
-  console.log(params.tema);
   const req = await fetch(
     `https://pf-api-sp.azurewebsites.net/docus/api/tema/${params.tema}`
   );

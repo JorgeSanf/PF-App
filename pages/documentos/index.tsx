@@ -1,5 +1,6 @@
-import { Grid } from "@mantine/core";
+import { Center, Grid } from "@mantine/core";
 import { Doc } from "../../types/Doc";
+import { ArticleCardVertical } from "./../../components/Cards";
 
 interface ListaDocsProps {
   docs: Doc[];
@@ -10,32 +11,19 @@ export default function ListaDocumentos({ docs }: ListaDocsProps) {
 
   return (
     <>
-      <h1>Lista de docs</h1>
+      <Center style={{ marginLeft: "-20%" }}>
+        <h1>Lista de docs</h1>
+      </Center>
       <Grid>
         {docs.map((doc: Doc) => {
           return (
-            /*<div
-              key={doc.id}
-              style={{
-                border: "solid 1px #dfe3ee",
-                borderRadius: "5px",
-                width: "20%",
-                margin: "2%",
-                float: "left",
-              }}
-            >*/
             <Grid.Col span={3}>
               <a href={"/documentos/" + doc.id}>
-                <div
-                  style={{
-                    paddingLeft: "20px",
-                    border: "solid 1px #dfe3ee",
-                    borderRadius: "5px",
-                  }}
-                >
-                  <h3>{doc.titulo}</h3>
-                  <p>{doc.autor}</p>
-                </div>
+                <ArticleCardVertical
+                  category={doc.tema}
+                  title={doc.titulo}
+                  author={doc.autor}
+                />
               </a>
             </Grid.Col>
           );
@@ -51,7 +39,6 @@ export async function getServerSideProps() {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
 
     return {
       props: {
@@ -67,3 +54,26 @@ export async function getServerSideProps() {
     };
   }
 }
+
+/*
+<div
+  style={{
+    paddingLeft: "20px",
+    border: "solid 1px #dfe3ee",
+    borderRadius: "5px",
+  }}
+>
+  <h3>{doc.titulo}</h3>
+  <p>{doc.autor}</p>
+</div>
+*/
+/*<div
+  key={doc.id}
+  style={{
+    border: "solid 1px #dfe3ee",
+    borderRadius: "5px",
+    width: "20%",
+    margin: "2%",
+    float: "left",
+  }}
+>*/
