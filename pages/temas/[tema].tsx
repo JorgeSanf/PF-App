@@ -1,3 +1,4 @@
+import { Grid } from "@mantine/core";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Doc } from "../../types/Doc";
@@ -10,16 +11,27 @@ export default function Tema({ docs }: { docs: Array<Doc> }) {
 
   return (
     <>
-      {docs.map((doc) => {
-        return (
-          <div key={doc.id}>
-            <a href={"/documentos/" + doc.id}>
-              <h3>{doc.titulo}</h3>
-              <p>{doc.autor}</p>
-            </a>
-          </div>
-        );
-      })}
+      <h2>Documentos sobre {docs[0].tema}</h2>
+      <Grid>
+        {docs.map((doc) => {
+          return (
+            <Grid.Col span={3}>
+              <a href={"/documentos/" + doc.id}>
+                <div
+                  style={{
+                    paddingLeft: "20px",
+                    border: "solid 1px #dfe3ee",
+                    borderRadius: "5px",
+                  }}
+                >
+                  <h3>{doc.titulo}</h3>
+                  <p>{doc.autor}</p>
+                </div>
+              </a>
+            </Grid.Col>
+          );
+        })}
+      </Grid>
     </>
   );
 }

@@ -1,13 +1,15 @@
-import { AppShell } from "@mantine/core";
+import { Container } from "@mantine/core";
 import type { NextPage } from "next";
-import Layout from "../components/Layout";
-import { NavbarSimple } from "../components/Navbar";
 //import Head from "next/head";
 //import Image from "next/image";
 //import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  return <p>Hola</p>;
+  return (
+    <Container size="lg" style={{ marginLeft: "5%" }}>
+      <p>Hola</p>
+    </Container>
+  );
   //return <Layout />;
 };
 

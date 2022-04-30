@@ -1,3 +1,4 @@
+import { Grid } from "@mantine/core";
 import { Doc } from "../../types/Doc";
 
 interface ListaDocsProps {
@@ -10,13 +11,36 @@ export default function ListaDocumentos({ docs }: ListaDocsProps) {
   return (
     <>
       <h1>Lista de docs</h1>
-      {docs.map((doc: Doc) => {
-        return (
-          <div key={doc.id}>
-            <a href={"/documentos/" + doc.id}>{doc.titulo}</a>
-          </div>
-        );
-      })}
+      <Grid>
+        {docs.map((doc: Doc) => {
+          return (
+            /*<div
+              key={doc.id}
+              style={{
+                border: "solid 1px #dfe3ee",
+                borderRadius: "5px",
+                width: "20%",
+                margin: "2%",
+                float: "left",
+              }}
+            >*/
+            <Grid.Col span={3}>
+              <a href={"/documentos/" + doc.id}>
+                <div
+                  style={{
+                    paddingLeft: "20px",
+                    border: "solid 1px #dfe3ee",
+                    borderRadius: "5px",
+                  }}
+                >
+                  <h3>{doc.titulo}</h3>
+                  <p>{doc.autor}</p>
+                </div>
+              </a>
+            </Grid.Col>
+          );
+        })}
+      </Grid>
     </>
   );
 }

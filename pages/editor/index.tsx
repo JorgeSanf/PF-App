@@ -15,7 +15,7 @@ const Editor = () => {
   return (
     <>
       <TextEditor
-        style={{ height: "67%", width: "67%", marginLeft: "8%" }}
+        style={{ minHeight: "67%", width: "67%", marginLeft: "8%" }}
         value={value}
         onChange={onChange}
         //onImageUpload={handleImageUpload}

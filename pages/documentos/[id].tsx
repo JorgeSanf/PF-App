@@ -1,3 +1,4 @@
+import { Container, TypographyStylesProvider } from "@mantine/core";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Doc } from "../../types/Doc";
@@ -19,12 +20,18 @@ export default function Documento({ doc }: { doc: Doc }) {
   }, []);
 
   return (
-    <>
-      <h1>{doc.titulo}</h1>
-      <h2>{doc.tema}</h2>
-      <h3>{doc.autor}</h3>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-    </>
+    <Container size="lg" style={{ marginLeft: "5%" }}>
+      <div style={{ marginLeft: "5%" }}>
+        <h1>{doc.titulo}</h1>
+        <h3>{doc.tema}</h3>
+        <h3>{doc.autor}</h3>
+      </div>
+
+      <TypographyStylesProvider>
+        {" "}
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </TypographyStylesProvider>
+    </Container>
   );
 }
 

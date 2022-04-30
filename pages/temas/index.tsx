@@ -5,7 +5,7 @@ export default function Documentos({ temas }: { temas: Array<string> }) {
     <>
       {temas.map((tema) => {
         return tema != "Prueba" ? (
-          <a href={"/temas/" + tema}>
+          <a href={"/temas/" + tema} style={{ margin: "50px" }}>
             <Image
               height={"200%"}
               width={"200%"}
