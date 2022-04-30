@@ -2,14 +2,20 @@ import { Alert, Box, Button, Modal, TextInput } from "@mantine/core";
 import { useState } from "react";
 import { Guardar } from "../../functions/guardar";
 
-export default function Caja({ html }: { html: string }) {
-  const [titol, setTitol] = useState("");
-  const [topic, setTopic] = useState("");
+export default function Caja({
+  html,
+  onClickGuardar,
+}: {
+  html: string;
+  onClickGuardar: any;
+}) {
+  const [titol, setTitol] = useState("Título");
+  const [topic, setTopic] = useState("Tema");
   const [opened, setOpened] = useState(false);
 
   const estadoInicial = () => {
-    setTitol("");
-    setTopic("");
+    setTitol("Título");
+    setTopic("Tema");
   };
 
   return (
@@ -25,8 +31,9 @@ export default function Caja({ html }: { html: string }) {
         style={{ float: "right", marginTop: "50px" }}
         onClick={() => {
           Guardar({ titol, topic, html });
-          estadoInicial();
           setOpened(true);
+          estadoInicial();
+          onClickGuardar();
         }}
       >
         Enviar
@@ -35,7 +42,7 @@ export default function Caja({ html }: { html: string }) {
       <TextInput
         style={{ width: "75%" }}
         variant="default"
-        placeholder="Título del documento"
+        placeholder={titol}
         onChange={(e) => {
           setTitol(e.target.value);
         }}
@@ -43,15 +50,16 @@ export default function Caja({ html }: { html: string }) {
       <TextInput
         style={{ width: "75%", marginTop: "20px" }}
         variant="default"
-        placeholder="Tema del documento"
+        placeholder={topic}
         onChange={(e) => {
           setTopic(e.target.value);
         }}
       />
       <Modal
-        style={{ position: "absolute", top: "25%" }}
         opened={opened}
-        onClose={() => setOpened(false)}
+        onClose={() => {
+          setOpened(false);
+        }}
         withCloseButton={false}
       >
         Documento guardado

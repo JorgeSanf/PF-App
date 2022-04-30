@@ -10,12 +10,14 @@ const Editor = () => {
   const initialValue = "<p><i>Comparta su <b>sabiduría</b>...</i></p>";
   const [value, onChange] = useState(initialValue);
   //const [titulo, setTitulo] = useState("");
-
+  const onClickGuardar = () => {
+    onChange(initialValue);
+  };
   //let titulo = '';
 
   return (
     <>
-      <Caja html={value} />
+      <Caja html={value} onClickGuardar={onClickGuardar} />
       <TextEditor
         style={{ minHeight: "55%", width: "67%", marginLeft: "8%" }}
         value={value}
