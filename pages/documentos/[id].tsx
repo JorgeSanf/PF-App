@@ -12,7 +12,6 @@ export default function Documento({ doc }: { doc: Doc }) {
     const recuperarHTML = async () => {
       const resp = await fetch(doc.enlace);
       resp.text().then((text) => {
-        console.log(text);
         setHtml(text);
       });
     };
@@ -34,7 +33,6 @@ export async function getServerSideProps({ params }: any) {
     `https://pf-api-sp.azurewebsites.net/docus/api/id/${params.id}`
   );
   const data = await req.json();
-  console.log(data);
 
   return {
     props: { doc: data },

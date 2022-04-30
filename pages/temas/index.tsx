@@ -5,12 +5,14 @@ export default function Documentos({ temas }: { temas: Array<string> }) {
     <>
       {temas.map((tema) => {
         return tema != "Prueba" ? (
-          <Image
-            height={"200%"}
-            width={"200%"}
-            src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tema.toLowerCase()}/${tema.toLowerCase()}-original.svg`}
-            alt={tema}
-          />
+          <a href={"/temas/" + tema}>
+            <Image
+              height={"200%"}
+              width={"200%"}
+              src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tema.toLowerCase()}/${tema.toLowerCase()}-original.svg`}
+              alt={tema}
+            />
+          </a>
         ) : (
           <p>{tema}</p>
         );
