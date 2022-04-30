@@ -1,5 +1,6 @@
 import React from "react";
 import { createStyles, Card, Image, Avatar, Text, Group } from "@mantine/core";
+import { doc } from "prettier";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -37,7 +38,7 @@ export function ArticleCardVertical({
   return (
     <Card withBorder radius="md" p={0} className={classes.card}>
       <Group noWrap spacing={0}>
-        <Image src={image} height={100} width={100} />
+        <Image src={image} height={100} width={100} alt={category} />
         <div className={classes.body}>
           <Text transform="uppercase" color="dimmed" weight={700} size="xs">
             {category}

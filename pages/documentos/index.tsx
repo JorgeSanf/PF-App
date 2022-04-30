@@ -17,7 +17,7 @@ export default function ListaDocumentos({ docs }: ListaDocsProps) {
       <Grid>
         {docs.map((doc: Doc) => {
           return (
-            <Grid.Col span={3}>
+            <Grid.Col span={3} key={doc.id}>
               <a href={"/documentos/" + doc.id}>
                 <ArticleCardVertical
                   category={doc.tema}

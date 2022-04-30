@@ -17,7 +17,7 @@ export default function Documento({ doc }: { doc: Doc }) {
       });
     };
     recuperarHTML();
-  }, []);
+  }, [id]);
 
   return (
     <Container size="lg" style={{ marginLeft: "5%" }}>

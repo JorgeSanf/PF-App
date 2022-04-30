@@ -7,24 +7,11 @@ export default function Documentos({ temas }: { temas: Array<string> }) {
   return (
     <Grid>
       {temas.map((tema) => {
-        const [src, setSrc] = useState(
-          `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tema.toLowerCase()}/${tema.toLowerCase()}-original.svg`
-        );
-
+        const srcImg = `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tema.toLowerCase()}/${tema.toLowerCase()}-original.svg`;
         return tema != "Prueba" ? (
           <Grid.Col span={2} style={{ margin: "10px" }}>
             <a href={"/temas/" + tema} key={tema}>
-              <Image
-                height={"150%"}
-                width={"150%"}
-                src={src}
-                alt={tema}
-                onError={() => {
-                  setSrc(
-                    `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tema.toLowerCase()}/${tema.toLowerCase()}-plain.svg`
-                  );
-                }}
-              />
+              <Image height={"150%"} width={"150%"} src={srcImg} alt={tema} />
             </a>
           </Grid.Col>
         ) : (

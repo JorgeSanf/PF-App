@@ -108,7 +108,13 @@ export function HeaderResponsive() {
       className={classes.root}
     >
       <Container className={classes.header}>
-        <Image src="/code.svg" height={"65%"} width={"65%"} priority />
+        <Image
+          src="/code.svg"
+          alt={"logo"}
+          height={"65%"}
+          width={"65%"}
+          priority
+        />
 
         <Burger
           opened={opened}
