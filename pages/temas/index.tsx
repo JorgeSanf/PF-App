@@ -1,24 +1,37 @@
+import { Grid } from "@mantine/core";
 import Image from "next/image";
+import { doc } from "prettier";
+import { useState } from "react";
 
 export default function Documentos({ temas }: { temas: Array<string> }) {
   return (
-    <>
+    <Grid>
       {temas.map((tema) => {
+        const [src, setSrc] = useState(
+          `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tema.toLowerCase()}/${tema.toLowerCase()}-original.svg`
+        );
+
         return tema != "Prueba" ? (
-          <a href={"/temas/" + tema} style={{ margin: "50px" }}>
-            <Image
-              height={"200%"}
-              width={"200%"}
-              src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tema.toLowerCase()}/${tema.toLowerCase()}-original.svg`}
-              //src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tema.toLowerCase()}/${tema.toLowerCase()}-plain.svg`}
-              alt={tema}
-            />
-          </a>
+          <Grid.Col span={2} style={{ margin: "10px" }}>
+            <a href={"/temas/" + tema} key={tema}>
+              <Image
+                height={"150%"}
+                width={"150%"}
+                src={src}
+                alt={tema}
+                onError={() => {
+                  setSrc(
+                    `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tema.toLowerCase()}/${tema.toLowerCase()}-plain.svg`
+                  );
+                }}
+              />
+            </a>
+          </Grid.Col>
         ) : (
           <p>{tema}</p>
         );
       })}
-    </>
+    </Grid>
   );
 }
 

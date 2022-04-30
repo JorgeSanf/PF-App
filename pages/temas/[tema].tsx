@@ -15,7 +15,7 @@ export default function Tema({ docs }: { docs: Array<Doc> }) {
       <Grid>
         {docs.map((doc) => {
           return (
-            <Grid.Col span={3}>
+            <Grid.Col span={3} key={doc.id}>
               <a href={"/documentos/" + doc.id}>
                 <div
                   style={{

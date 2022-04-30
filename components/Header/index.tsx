@@ -9,6 +9,7 @@ import {
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
 import { Search } from "tabler-icons-react";
+import Image from "next/image";
 //import { MantineLogo } from "../../shared/MantineLogo";
 
 const HEADER_HEIGHT = 60;
@@ -107,7 +108,7 @@ export function HeaderResponsive() {
       className={classes.root}
     >
       <Container className={classes.header}>
-        <img src="/code.svg" height={"75%"} />
+        <Image src="/code.svg" height={"65%"} width={"65%"} priority />
 
         <Burger
           opened={opened}

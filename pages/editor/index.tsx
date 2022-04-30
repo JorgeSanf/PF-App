@@ -2,6 +2,7 @@ import { useState } from "react";
 import TextEditor from "../../components/Editor";
 import { Container } from "tabler-icons-react";
 import { ModalGuardar } from "./../../components/Modal";
+import Caja from "../../components/Caja";
 
 //import { RichTextEditor } from "@mantine/rte";
 
@@ -14,16 +15,18 @@ const Editor = () => {
 
   return (
     <>
+      <Caja html={value} />
       <TextEditor
-        style={{ minHeight: "67%", width: "67%", marginLeft: "8%" }}
+        style={{ minHeight: "55%", width: "67%", marginLeft: "8%" }}
         value={value}
         onChange={onChange}
         //onImageUpload={handleImageUpload}
       />
-      <ModalGuardar html={value} />
     </>
   );
 };
+
+//<ModalGuardar html={value} />
 
 export default Editor;
 
