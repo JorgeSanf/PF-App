@@ -95,7 +95,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
   };
 });
 
-const data = [
+const items = [
   { link: "/", label: "Inicio", icon: Home },
   { link: "/editor", label: "Editor", icon: Edit },
   { link: "/documentos", label: "Documentos", icon: Notes },
@@ -107,8 +107,9 @@ export function NavbarSimple() {
   const [active, setActive] = useState("");
 
   const { data: session } = useSession();
+  const { data } = useSession();
 
-  const links = data.map((item) => (
+  const links = items.map((item) => (
     <Link href={item.link} key={item.label}>
       <a
         className={cx(classes.link, {
@@ -136,24 +137,36 @@ export function NavbarSimple() {
       </Navbar.Section>
 
       <Navbar.Section className={classes.footer}>
-        <a
-          href="#"
-          className={classes.link}
-          onClick={(event) => event.preventDefault()}
-        >
-          <UserCircle className={classes.linkIcon} />
-          <span>Perfil</span>
-        </a>
-
-        <a
-          href="#"
-          className={classes.link}
-          onClick={() => signOut()}
-          //onClick={(event) => event.preventDefault()}
-        >
-          <Logout className={classes.linkIcon} />
-          <span>Logout</span>
-        </a>
+        {!session ? (
+          <a
+            href="/api/auth/signin"
+            className={classes.link}
+            //onClick={(event) => event.preventDefault()}
+          >
+            <UserCircle className={classes.linkIcon} />
+            <span>Inicia sesión con GitHub</span>
+          </a>
+        ) : (
+          <>
+            <a
+              href="/"
+              className={classes.link}
+              //onClick={(event) => event.preventDefault()}
+            >
+              <UserCircle className={classes.linkIcon} />
+              <span>{data?.user?.name}</span>
+            </a>
+            <a
+              href="#"
+              className={classes.link}
+              onClick={() => signOut()}
+              //onClick={(event) => event.preventDefault()}
+            >
+              <Logout className={classes.linkIcon} />
+              <span>Logout</span>
+            </a>
+          </>
+        )}
       </Navbar.Section>
     </Navbar>
   );

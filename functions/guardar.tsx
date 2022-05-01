@@ -1,4 +1,5 @@
 import { BlobServiceClient } from "@azure/storage-blob";
+import { useSession } from "next-auth/react";
 
 interface GuardarBlobProps {
   html: string;
@@ -8,6 +9,8 @@ interface GuardarBlobProps {
 
 export function Guardar({ html, topic, titol }: GuardarBlobProps) {
   const link = `https://dochtml.blob.core.windows.net/$web/${titol}.html`;
+
+  const { data } = useSession();
 
   const guardarBlob = async () => {
     const htmldoc =
@@ -36,7 +39,7 @@ export function Guardar({ html, topic, titol }: GuardarBlobProps) {
       titulo: titol,
       tema: topic,
       enlace: link,
-      autor: "Jorge",
+      autor: data?.user?.name,
     }),
   };
 
