@@ -1,0 +1,4 @@
+{
+    "remoteHub.commitDirectlyWarning": "auto",
+    "git.enableSmartCommit": true
+}

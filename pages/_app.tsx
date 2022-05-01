@@ -4,6 +4,7 @@ import Head from "next/head";
 import { AppShell } from "@mantine/core";
 import { NavbarSimple } from "../components/Navbar";
 import { HeaderResponsive } from "../components/Header";
+import { SessionProvider } from "next-auth/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -14,11 +15,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/code.ico" />
       </Head>
 
-      <AppShell header={<HeaderResponsive />} navbar={<NavbarSimple />}>
-        <Component {...pageProps} />
-      </AppShell>
+      <SessionProvider session={pageProps.session}>
+        <AppShell header={<HeaderResponsive />} navbar={<NavbarSimple />}>
+          <Component {...pageProps} />
+        </AppShell>
+      </SessionProvider>
     </>
   );
 }
 
 export default MyApp;
+/*
+      <SessionProvider session={pageProps.session} refetchInterval={0}>
+      </SessionProvider>
+*/

@@ -11,6 +11,7 @@ import {
 import React, { useState } from "react";
 import Link from "next/link";
 //import { MantineLogo } from "../../shared/MantineLogo";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef("icon");
@@ -105,6 +106,8 @@ export function NavbarSimple() {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState("");
 
+  const { data: session } = useSession();
+
   const links = data.map((item) => (
     <Link href={item.link} key={item.label}>
       <a
@@ -145,7 +148,8 @@ export function NavbarSimple() {
         <a
           href="#"
           className={classes.link}
-          onClick={(event) => event.preventDefault()}
+          onClick={() => signOut()}
+          //onClick={(event) => event.preventDefault()}
         >
           <Logout className={classes.linkIcon} />
           <span>Logout</span>
