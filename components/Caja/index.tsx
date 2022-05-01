@@ -1,4 +1,5 @@
 import { Alert, Box, Button, Modal, TextInput } from "@mantine/core";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { Guardar } from "../../functions/guardar";
 
@@ -12,6 +13,8 @@ export default function Caja({
   const [titol, setTitol] = useState("Título");
   const [topic, setTopic] = useState("Tema");
   const [opened, setOpened] = useState(false);
+  const { data } = useSession();
+  const username = data?.user?.name;
 
   const estadoInicial = () => {
     setTitol("Título");
@@ -30,7 +33,7 @@ export default function Caja({
       <Button
         style={{ float: "right", marginTop: "50px" }}
         onClick={() => {
-          Guardar({ titol, topic, html });
+          Guardar({ titol, topic, html, username });
           setOpened(true);
           estadoInicial();
           onClickGuardar();

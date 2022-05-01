@@ -3,14 +3,12 @@ import TextEditor from "../../components/Editor";
 import { Container } from "tabler-icons-react";
 import { ModalGuardar } from "./../../components/Modal";
 import Caja from "../../components/Caja";
-import { useSession } from "next-auth/react";
+
 //import { RichTextEditor } from "@mantine/rte";
 
 const Editor = () => {
   const initialValue = "<p><i>Comparta su <b>sabiduría</b>...</i></p>";
   const [value, onChange] = useState(initialValue);
-
-  const { data: session } = useSession();
   //const [titulo, setTitulo] = useState("");
   const onClickGuardar = () => {
     onChange(initialValue);
@@ -19,7 +17,7 @@ const Editor = () => {
 
   return (
     <>
-      {session && <Caja html={value} onClickGuardar={onClickGuardar} />}
+      <Caja html={value} onClickGuardar={onClickGuardar} />
       <TextEditor
         style={{ minHeight: "55%", width: "67%", marginLeft: "8%" }}
         value={value}

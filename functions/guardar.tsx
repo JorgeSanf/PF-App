@@ -5,12 +5,11 @@ interface GuardarBlobProps {
   html: string;
   topic: string;
   titol: string;
+  username: any;
 }
 
-export function Guardar({ html, topic, titol }: GuardarBlobProps) {
+export function Guardar({ html, topic, titol, username }: GuardarBlobProps) {
   const link = `https://dochtml.blob.core.windows.net/$web/${titol}.html`;
-
-  const { data } = useSession();
 
   const guardarBlob = async () => {
     const htmldoc =
@@ -18,7 +17,7 @@ export function Guardar({ html, topic, titol }: GuardarBlobProps) {
       html +
       "</body></html>";
     const blobSasUrl =
-      "?sv=2020-08-04&ss=bfqt&srt=co&sp=rwdlacutfx&se=2022-04-30T22:13:12Z&st=2022-04-30T14:13:12Z&spr=https&sig=n5ZBLGt7iSwaN09Az8tgejqLGrR4VU8Xx80LqEbQ6hk%3D";
+      "?sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacutfx&se=2022-05-01T04:14:32Z&st=2022-05-01T02:14:32Z&spr=https&sig=L0tBU6EzzWusQYeWD6uT6t6FPNRQ8vOKmLSIxOXi6k0%3D";
     const url = "https://dochtml.blob.core.windows.net/";
     const body = htmldoc;
 
@@ -39,7 +38,7 @@ export function Guardar({ html, topic, titol }: GuardarBlobProps) {
       titulo: titol,
       tema: topic,
       enlace: link,
-      autor: data?.user?.name,
+      autor: username,
     }),
   };
 

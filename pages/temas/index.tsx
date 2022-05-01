@@ -9,7 +9,7 @@ export default function Documentos({ temas }: { temas: Array<string> }) {
       {temas.map((tema) => {
         const srcImg = `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tema.toLowerCase()}/${tema.toLowerCase()}-original.svg`;
         return tema != "Prueba" ? (
-          <Grid.Col span={2} style={{ margin: "10px" }}>
+          <Grid.Col span={2} style={{ margin: "10px" }} key={tema}>
             <a href={"/temas/" + tema} key={tema}>
               <Image height={"150%"} width={"150%"} src={srcImg} alt={tema} />
             </a>
