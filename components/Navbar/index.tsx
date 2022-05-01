@@ -138,24 +138,26 @@ export function NavbarSimple() {
 
       <Navbar.Section className={classes.footer}>
         {!session ? (
-          <a
-            href="/api/auth/signin"
-            className={classes.link}
-            //onClick={(event) => event.preventDefault()}
-          >
-            <UserCircle className={classes.linkIcon} />
-            <span>Inicia sesión con GitHub</span>
-          </a>
-        ) : (
-          <>
+          <Link href={"/api/auth/signin"}>
             <a
-              href="/"
               className={classes.link}
               //onClick={(event) => event.preventDefault()}
             >
               <UserCircle className={classes.linkIcon} />
-              <span>{data?.user?.name}</span>
+              <span>Inicia sesión con GitHub</span>
             </a>
+          </Link>
+        ) : (
+          <>
+            <Link href={"/"}>
+              <a
+                className={classes.link}
+                //onClick={(event) => event.preventDefault()}
+              >
+                <UserCircle className={classes.linkIcon} />
+                <span>{data?.user?.name}</span>
+              </a>
+            </Link>
             <a
               href="#"
               className={classes.link}
