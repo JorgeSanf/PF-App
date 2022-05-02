@@ -131,7 +131,7 @@ export function NavbarSimple() {
       <Navbar.Section grow>
         <Group className={classes.header} position="apart">
           <p>Menú</p>
-          <Code sx={{ fontWeight: 700 }}>v0.2.5</Code>
+          <Code sx={{ fontWeight: 700 }}>v0.3</Code>
         </Group>
         {links}
       </Navbar.Section>

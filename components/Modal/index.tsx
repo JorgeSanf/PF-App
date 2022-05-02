@@ -2,11 +2,15 @@ import { useState } from "react";
 import { Modal, Button, Group, Input, TextInput } from "@mantine/core";
 import { Container } from "tabler-icons-react";
 import { Guardar } from "./../../functions/guardar";
+import { useSession } from "next-auth/react";
 
 export function ModalGuardar({ html }: { html: string }) {
   const [opened, setOpened] = useState(false);
   const [titol, setTitol] = useState("");
   const [topic, setTopic] = useState("");
+
+  const { data } = useSession();
+  const username = data?.user?.name;
 
   const estadoInicial = () => {
     setTitol("");
@@ -38,7 +42,7 @@ export function ModalGuardar({ html }: { html: string }) {
             />
             <Button
               onClick={() => {
-                Guardar({ titol, topic, html });
+                Guardar({ titol, topic, html, username });
                 setOpened(false);
                 estadoInicial();
               }}
