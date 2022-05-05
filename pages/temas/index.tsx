@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function Documentos({ temas }: { temas: Array<string> }) {
   return (
-    <Grid>
+    <Grid style={{ padding: "4%" }}>
       {temas.map((tema) => {
         const srcImg = `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tema.toLowerCase()}/${tema.toLowerCase()}-original.svg`;
         return tema != "Prueba" ? (

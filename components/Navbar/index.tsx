@@ -166,7 +166,7 @@ export function NavbarSimple() {
               //onClick={(event) => event.preventDefault()}
             >
               <Logout className={classes.linkIcon} />
-              <span>Logout</span>
+              <span>Cerrar sesión</span>
             </a>
           </>
         )}
