@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <SessionProvider session={pageProps.session}>
-        <AppShell header={<HeaderResponsive />} navbar={<NavbarSimple />}>
+        <AppShell /*header={<HeaderResponsive />}*/ navbar={<NavbarSimple />}>
           <Component {...pageProps} />
         </AppShell>
       </SessionProvider>

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import TextEditor from "../../components/Editor";
 import { Container } from "tabler-icons-react";
-import { ModalGuardar } from "./../../components/Modal";
+//import { ModalGuardar } from "./../../components/Modal";
 import Caja from "../../components/Caja";
+import { useSession } from "next-auth/react";
 
 //import { RichTextEditor } from "@mantine/rte";
 
@@ -14,10 +15,18 @@ const Editor = () => {
     onChange(initialValue);
   };
   //let titulo = '';
+  const { data: session } = useSession();
 
   return (
     <>
-      <Caja html={value} onClickGuardar={onClickGuardar} />
+      {session ? (
+        <>
+          <h1 style={{ paddingLeft: "33%" }}>Crea un documento</h1>
+          <Caja html={value} onClickGuardar={onClickGuardar} />
+        </>
+      ) : (
+        <br />
+      )}
       <TextEditor
         style={{ minHeight: "55%", width: "67%", marginLeft: "8%" }}
         value={value}

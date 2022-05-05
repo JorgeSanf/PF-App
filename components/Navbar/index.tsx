@@ -12,6 +12,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 //import { MantineLogo } from "../../shared/MantineLogo";
 import { useSession, signIn, signOut } from "next-auth/react";
+import Image from "next/image";
 
 const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef("icon");
@@ -130,7 +131,7 @@ export function NavbarSimple() {
     <Navbar style={{ height: "full" }} width={{ sm: 300 }} p="md">
       <Navbar.Section grow>
         <Group className={classes.header} position="apart">
-          <p>Menú</p>
+          <Image src="/docappo2.png" width="161px" height="33px" />
           <Code sx={{ fontWeight: 700 }}>v0.3</Code>
         </Group>
         {links}
