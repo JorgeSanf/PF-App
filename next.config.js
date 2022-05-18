@@ -4,9 +4,9 @@ const nextConfig = {
   experimental: {
     outputStandalone: true,
   },
-    images: {
-    domains: ['cdn.jsdelivr.net'],
+  images: {
+    domains: ["cdn.jsdelivr.net"],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

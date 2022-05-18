@@ -3,6 +3,18 @@ import { useSession, signIn, signOut } from "next-auth/react";
 export default function Home() {
   const { data: session } = useSession();
   if (session) {
+    return <>Poner los documentos de uno aquí, y la opción de borrarlos</>;
+  }
+  return (
+    <>
+      Not signed in <br />
+      <button onClick={() => signIn()}>Sign in</button>
+    </>
+  );
+}
+
+/*
+  if (session) {
     return (
       <>
         Signed in as <br />
@@ -16,4 +28,4 @@ export default function Home() {
       <button onClick={() => signIn()}>Sign in</button>
     </>
   );
-}
+*/

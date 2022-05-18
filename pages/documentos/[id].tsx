@@ -29,7 +29,6 @@ export default function Documento({ doc }: { doc: Doc }) {
       </div>
 
       <TypographyStylesProvider>
-        {" "}
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </TypographyStylesProvider>
     </Container>
