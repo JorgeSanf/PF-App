@@ -99,7 +99,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
 const items = [
   { link: "/", label: "Inicio", icon: Home },
   { link: "/editor", label: "Editor", icon: Edit },
-  { link: "/documentos", label: "Documentos", icon: Notes },
+  { link: "/loading", label: "Documentos", icon: Notes },
   { link: "/temas", label: "Temas", icon: FileCode },
 ];
 
