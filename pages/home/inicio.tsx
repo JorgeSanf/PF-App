@@ -4,15 +4,15 @@ import { useEffect, useState } from "react";
 import { ArticleCardVertical } from "../../components/Cards";
 import Doc from "../../types/Doc";
 import styles from "../../styles/Spinner.module.css";
+import { Session } from "inspector";
 
 export const Inicio = () => {
   const { data } = useSession();
-  let autor = data?.user?.name;
-
   const [docus, setDocus] = useState<Array<Doc>>([]);
   const [cargando, setCargando] = useState<boolean>(true);
 
   useEffect(() => {
+    let autor = data?.user?.name;
     const url = "https://pf-api-sp.azurewebsites.net/docus/api/autor/" + autor;
 
     const recuperarDocs = async () => {
@@ -35,8 +35,12 @@ export const Inicio = () => {
   ) : (
     <>
       <Center style={{ marginLeft: "-20%" }}>
-        <h1>Lista de tus documentos</h1>
+        <h2>Hola, {data?.user?.name}</h2>
       </Center>
+      <Center style={{ marginLeft: "-20%" }}>
+        <h1>Tu lista de documentos</h1>
+      </Center>
+      <br />
       <Grid>
         {docus.map((doc: Doc) => {
           return (

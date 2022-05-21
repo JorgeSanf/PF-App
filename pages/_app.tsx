@@ -8,13 +8,11 @@ import {
   MantineProvider,
 } from "@mantine/core";
 import { NavbarSimple } from "../components/Navbar";
-import { HeaderResponsive } from "../components/Header";
 import { getSession, SessionProvider } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { getCookie, setCookies } from "cookies-next";
 import { GetServerSidePropsContext } from "next";
 import { Session } from "next-auth";
-import { createGenerateId, JssProvider } from "react-jss";
 
 export default function DocApp(
   props: AppProps & { colorScheme: ColorScheme; sesion: Session } //& { session: Session }
@@ -23,11 +21,11 @@ export default function DocApp(
   const [colorScheme, setColorScheme] = useState<ColorScheme>(
     props.colorScheme
   );
-  //const [sesion, setSesion] = useState<Session>(props.sesion);
+  const [sesion, setSesion] = useState<Session>(props.sesion);
 
-  /*useEffect(() => {
+  useEffect(() => {
     getSession().then((sesio) => (sesio ? setSesion(sesio) : ""));
-  }, []);*/
+  }, []);
 
   const toggleColorScheme = (value?: ColorScheme) => {
     const nextColorScheme =
@@ -74,7 +72,7 @@ export default function DocApp(
 
 DocApp.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
   colorScheme: getCookie("mantine-color-scheme", ctx) || "light",
-  session: getSession(),
+  //session: getSession(),
 });
 /*
       <SessionProvider session={pageProps.session} refetchInterval={0}>

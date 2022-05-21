@@ -1,4 +1,4 @@
-import { Center, Grid } from "@mantine/core";
+import { Center, Grid, Title } from "@mantine/core";
 import { Doc } from "../../types/Doc";
 import { ArticleCardVertical } from "./../../components/Cards";
 
@@ -11,8 +11,10 @@ export default function ListaDocumentos({ docs }: ListaDocsProps) {
 
   return (
     <>
-      <Center style={{ marginLeft: "-20%" }}>
-        <h1>Lista de docs</h1>
+      <Center
+        style={{ marginLeft: "-20%", marginBottom: "2%", color: "#004040" }}
+      >
+        <Title order={1}>Lista de docs</Title>
       </Center>
       <Grid>
         {docs.map((doc: Doc) => {

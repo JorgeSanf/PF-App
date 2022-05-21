@@ -165,7 +165,7 @@ export function NavbarSimple() {
       </Navbar.Section>
       <Group>
         <Code sx={{ fontWeight: 700 }} style={{ marginLeft: "auto" }}>
-          v0.4
+          v0.5
         </Code>
       </Group>
       <Navbar.Section className={classes.footer}>
