@@ -22,6 +22,7 @@ import Link from "next/link";
 //import { MantineLogo } from "../../shared/MantineLogo";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
+import { UserButton } from "../UserButton";
 //import { useViewportSize } from "@mantine/hooks";
 
 const useStyles = createStyles((theme, _params, getRef) => {
@@ -190,11 +191,14 @@ export function NavbarSimple() {
           <>
             <Link href={"/"}>
               <a
-                className={classes.link}
-                //onClick={(event) => event.preventDefault()}
+              //className={classes.link}
+              //onClick={(event) => event.preventDefault()}
               >
-                <UserCircle className={classes.linkIcon} />
-                <span>{data?.user?.name}</span>
+                <UserButton
+                  image={data?.user?.image!}
+                  name={data?.user?.name!}
+                  email={data?.user?.email!}
+                />
               </a>
             </Link>
             <a
@@ -212,3 +216,9 @@ export function NavbarSimple() {
     </Navbar>
   );
 }
+
+/* Old perfil
+
+                <UserCircle className={classes.linkIcon} />
+                <span>{data?.user?.name}</span>
+                */

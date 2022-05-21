@@ -41,7 +41,7 @@ export const Inicio = () => {
         <h1>Tu lista de documentos</h1>
       </Center>
       <br />
-      <Grid>
+      <Grid style={{ padding: "2%" }}>
         {docus.map((doc: Doc) => {
           return (
             <Grid.Col span={3} key={doc.id}>
