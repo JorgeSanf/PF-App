@@ -3,30 +3,14 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Doc } from "../../types/Doc";
 
-export default function Tema() {
+export default function Tema({ docs }: { docs: Array<Doc> }) {
   const router = useRouter();
-  const { tema } = router.query;
-  const [docs, setDocs] = useState<Array<Doc>>([]);
-  const [cargando, setCargando] = useState<boolean>(true);
-
-  const inicializar = async () => {
-    const req = await fetch(
-      `https://pf-api-sp.azurewebsites.net/docus/api/tema/${tema}`
-    );
-    const data = await req.json();
-    setDocs(data);
-  };
-
-  useEffect(() => {
-    inicializar().then(() => {
-      setCargando(false);
-    });
-  });
+  const { id } = router.query;
 
   return (
     <>
       <Center style={{ marginLeft: "-20%" }}>
-        <h2>Documentos sobre {tema}</h2>
+        <h2>Documentos sobre {docs[0].tema}</h2>
       </Center>
       <Grid>
         {docs.map((doc) => {
@@ -50,4 +34,15 @@ export default function Tema() {
       </Grid>
     </>
   );
+}
+
+export async function getServerSideProps({ params }: any) {
+  const req = await fetch(
+    `https://pf-api-sp.azurewebsites.net/docus/api/tema/${params.tema}`
+  );
+  const data = await req.json();
+
+  return {
+    props: { docs: data },
+  };
 }

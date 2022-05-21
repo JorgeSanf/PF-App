@@ -1,4 +1,11 @@
-import { Navbar, Group, Code, createStyles } from "@mantine/core";
+import {
+  Navbar,
+  Group,
+  Code,
+  createStyles,
+  ActionIcon,
+  useMantineColorScheme,
+} from "@mantine/core";
 import {
   Notes,
   Home,
@@ -6,6 +13,8 @@ import {
   UserCircle,
   Logout,
   FileCode,
+  MoonStars,
+  Sun,
 } from "tabler-icons-react";
 //import { Logo } from "./Logo";
 import React, { useState } from "react";
@@ -13,6 +22,7 @@ import Link from "next/link";
 //import { MantineLogo } from "../../shared/MantineLogo";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
+//import { useViewportSize } from "@mantine/hooks";
 
 const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef("icon");
@@ -35,8 +45,8 @@ const useStyles = createStyles((theme, _params, getRef) => {
           ? theme.colors.dark[4]
           : theme.colors.gray[2]
       }`,
-      marginBottom: theme.spacing.xl,
-      paddingBottom: theme.spacing.xl,
+      marginBottom: theme.spacing.xs,
+      paddingBottom: theme.spacing.xs,
     },
 
     link: {
@@ -109,6 +119,10 @@ export function NavbarSimple() {
 
   const { data: session } = useSession();
   const { data } = useSession();
+  //const { height } = useViewportSize();
+
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const dark = colorScheme === "dark";
 
   const links = items.map((item) => (
     <Link href={item.link} key={item.label}>
@@ -128,15 +142,32 @@ export function NavbarSimple() {
   ));
 
   return (
-    <Navbar style={{ height: "full" }} width={{ sm: 300 }} p="md">
+    <Navbar
+      //style={{ height: "full" }}
+      //height={"100vh"}
+      width={{ sm: 300 }}
+      p="md"
+      fixed
+    >
       <Navbar.Section grow>
         <Group className={classes.header} position="apart">
-          <Image src="/docappo2.png" width="161px" height="33px" />
-          <Code sx={{ fontWeight: 700 }}>v0.3</Code>
+          <Image src="/docappo2.png" width="161px" height="33px" alt="logo" />
+          <ActionIcon
+            variant="outline"
+            color={dark ? "yellow" : "blue"}
+            onClick={() => toggleColorScheme()}
+            title="Toggle color scheme"
+          >
+            {dark ? <Sun size={18} /> : <MoonStars size={18} />}
+          </ActionIcon>
         </Group>
         {links}
       </Navbar.Section>
-
+      <Group>
+        <Code sx={{ fontWeight: 700 }} style={{ marginLeft: "auto" }}>
+          v0.4
+        </Code>
+      </Group>
       <Navbar.Section className={classes.footer}>
         {!session ? (
           <Link href={"/api/auth/signin"}>

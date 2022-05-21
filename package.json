@@ -1,6 +1,6 @@
 {
   "name": "pf-app",
-  "version": "0.1.0",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -14,6 +14,7 @@
     "@mantine/hooks": "^4.1.5",
     "@mantine/next": "^4.1.5",
     "@mantine/rte": "^4.2.1",
+    "cookies-next": "^2.0.4",
     "next": "^12.1.5",
     "next-auth": "^4.3.4",
     "react": "18.1.0",
