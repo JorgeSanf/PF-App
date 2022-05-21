@@ -20,7 +20,23 @@ export default NextAuth({
   ],
   //debug: process.env.NODE_ENV === "development",
   secret: process.env.AUTH_SECRET,
-
+  pages: {
+    signIn: "/auth/signin",
+    /*     signOut: '/auth/signout',
+    error: '/auth/error', // Error code passed in query string as ?error=
+    verifyRequest: '/auth/verify-request', // (used for check email message)
+    newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest) */
+  },
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      // Allows relative callback URLs
+      //if (url.startsWith("/")) return `${baseUrl}${url}`;
+      // Allows callback URLs on the same origin
+      /*else*/
+      if (new URL(url).origin === baseUrl) return baseUrl + "/home";
+      return baseUrl;
+    },
+  },
 });
 
 // https://next-auth.js.org/configuration/providers/oauth
