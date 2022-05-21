@@ -58,7 +58,8 @@ export default function Documento() {
         style={{
           marginLeft: "5%",
           marginTop: "2%",
-          borderBottom: "1px solid #00b4b4",
+          border: "1px solid #00b4b4",
+          borderRadius: "10px",
           padding: "2%",
           width: "80%",
         }}

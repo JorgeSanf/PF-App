@@ -1,7 +1,12 @@
+import { Title } from "@mantine/core";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Inicio from "./inicio";
+import styles from "../../styles/Signin.module.css";
 
-export default function Home() {
+export default function Home({
+  csrfToken,
+  providers,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { data: session } = useSession();
   if (session) {
     return <Inicio />;
@@ -9,8 +14,7 @@ export default function Home() {
   }
   return (
     <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
+      <Signin providers={providers} csrfToken={csrfToken} />
     </>
   );
 }
@@ -31,3 +35,52 @@ export default function Home() {
     </>
   );
 */
+import { InferGetServerSidePropsType } from "next";
+import { CtxOrReq } from "next-auth/client/_utils";
+import { getCsrfToken, getProviders } from "next-auth/react";
+import Image from "next/image";
+
+const Signin = ({
+  csrfToken,
+  providers,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  return (
+    <div
+      style={{
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
+      <div className={styles.wrapper} />
+      <div className={styles.content}>
+        <div className={styles.cardWrapper}>
+          <div className={styles.cardContent}>
+            <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+            <Title order={2}>Inicie sesión</Title> <br />
+            {providers &&
+              Object.values(providers).map((provider) => (
+                <div key={provider.name} style={{ marginBottom: 0 }}>
+                  <button onClick={() => signIn(provider.id)}>
+                    {provider.name}
+                  </button>
+                </div>
+              ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+//export default Signin;
+
+export async function getServerSideProps(context: any) {
+  const providers = await getProviders();
+  const csrfToken = await getCsrfToken(context);
+  return {
+    props: {
+      providers,
+      csrfToken,
+    },
+  };
+}

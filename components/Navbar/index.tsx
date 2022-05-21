@@ -164,9 +164,15 @@ export function NavbarSimple() {
         {links}
       </Navbar.Section>
       <Group>
-        <Code sx={{ fontWeight: 700 }} style={{ marginLeft: "auto" }}>
-          v0.5
-        </Code>
+        <Link href={"https://github.com/JorgeSanf/PF-App"}>
+          <a
+            className={classes.linkIcon}
+            style={{ marginLeft: "auto" }}
+            //onClick={(event) => event.preventDefault()}
+          >
+            <Code sx={{ fontWeight: 700 }}>v0.5</Code>
+          </a>
+        </Link>
       </Group>
       <Navbar.Section className={classes.footer}>
         {!session ? (

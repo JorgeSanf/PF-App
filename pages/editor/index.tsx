@@ -29,10 +29,11 @@ const Editor = () => {
       )}
       <TextEditor
         style={{
-          minHeight: "55%",
+          minHeight: "67%",
           width: "67%",
           margin: "5%",
           marginLeft: "10%",
+          marginBottom: "2%",
         }}
         value={value}
         onChange={onChange}
