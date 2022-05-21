@@ -72,7 +72,7 @@ export default function Documento() {
         </Title>
         <Title
           order={1}
-          style={{ marginTop: "0%", marginBottom: "0.5%", color: "#004040" }}
+          style={{ marginTop: "0%", marginBottom: "0.5%", color: "#005555" }}
         >
           {json.titulo}
         </Title>
