@@ -168,6 +168,7 @@ export function NavbarSimple() {
           <a
             className={classes.linkIcon}
             style={{ marginLeft: "auto" }}
+            target="_blank"
             //onClick={(event) => event.preventDefault()}
           >
             <Code sx={{ fontWeight: 700 }}>v0.5</Code>
