@@ -20,20 +20,28 @@ const Editor = () => {
   return (
     <>
       {session ? (
-        <>
-          <h1 style={{ paddingLeft: "33%" }}>Crea un documento</h1>
+        <div
+          style={{
+            //margin: "auto",
+            marginLeft: "80px",
+            borderBottom: "solid 1px #00b4b4",
+            paddingBottom: "2%",
+            width: "80%",
+          }}
+        >
+          <h1 style={{ marginLeft: "33%" }}>Crea un documento</h1>
           <Caja html={value} onClickGuardar={onClickGuardar} />
-        </>
+        </div>
       ) : (
         <br />
       )}
       <TextEditor
         style={{
-          minHeight: "67%",
+          minHeight: "75%",
           width: "67%",
           margin: "5%",
           marginLeft: "10%",
-          marginBottom: "2%",
+          marginBottom: "1%",
         }}
         value={value}
         onChange={onChange}

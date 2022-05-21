@@ -31,7 +31,7 @@ export default function Caja({
       }}
     >
       <Button
-        style={{ float: "right", marginTop: "50px" }}
+        style={{ float: "right", marginTop: "50px", marginRight: "-18%" }}
         onClick={() => {
           Guardar({ titol, topic, html, username });
           setOpened(true);
@@ -43,7 +43,7 @@ export default function Caja({
       </Button>
       <br />
       <TextInput
-        style={{ width: "75%" }}
+        style={{ width: "90%" }}
         variant="default"
         placeholder={titol}
         onChange={(e) => {
@@ -51,7 +51,7 @@ export default function Caja({
         }}
       />
       <TextInput
-        style={{ width: "75%", marginTop: "20px" }}
+        style={{ width: "90%", marginTop: "20px" }}
         variant="default"
         placeholder={topic}
         onChange={(e) => {

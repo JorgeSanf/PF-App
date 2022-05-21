@@ -5,6 +5,7 @@ import {
   createStyles,
   ActionIcon,
   useMantineColorScheme,
+  Center,
 } from "@mantine/core";
 import {
   Notes,
