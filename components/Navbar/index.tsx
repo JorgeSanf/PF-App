@@ -21,9 +21,12 @@ import {
 import React, { useState } from "react";
 import Link from "next/link";
 //import { MantineLogo } from "../../shared/MantineLogo";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn, signOut, getSession } from "next-auth/react";
 import Image from "next/image";
 import { UserButton } from "../UserButton";
+import { Session } from "inspector";
+import { getServerSession } from "next-auth";
+import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 //import { useViewportSize } from "@mantine/hooks";
 
 const useStyles = createStyles((theme, _params, getRef) => {
@@ -119,6 +122,7 @@ export function NavbarSimple() {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState("");
 
+  //const session = getSession();
   const { data: session } = useSession();
   const { data } = useSession();
   //const { height } = useViewportSize();
@@ -184,17 +188,7 @@ export function NavbarSimple() {
         </Link>
       </Group>
       <Navbar.Section className={classes.footer}>
-        {!session ? (
-          <Link href={"/api/auth/signin"}>
-            <a
-              className={classes.link}
-              //onClick={(event) => event.preventDefault()}
-            >
-              <UserCircle className={classes.linkIcon} />
-              <span>Inicia sesión con GitHub</span>
-            </a>
-          </Link>
-        ) : (
+        {session ? (
           <>
             <Link href={"/"}>
               <a
@@ -218,6 +212,16 @@ export function NavbarSimple() {
               <span>Cerrar sesión</span>
             </a>
           </>
+        ) : (
+          <Link href={"/api/auth/signin"}>
+            <a
+              className={classes.link}
+              //onClick={(event) => event.preventDefault()}
+            >
+              <UserCircle className={classes.linkIcon} />
+              <span>Inicia sesión con GitHub</span>
+            </a>
+          </Link>
         )}
       </Navbar.Section>
     </Navbar>

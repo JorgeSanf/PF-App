@@ -10,7 +10,7 @@ import {
 import { NavbarSimple } from "../components/Navbar";
 import { getSession, SessionProvider } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { getCookie, setCookies } from "cookies-next";
+import { checkCookies, getCookie, setCookies } from "cookies-next";
 import { GetServerSidePropsContext } from "next";
 import { Session } from "next-auth";
 import { JssProvider, createGenerateId } from "react-jss";
@@ -43,6 +43,19 @@ export default function DocApp(
 
   /*useEffect(() => {
     getSession().then((sesio) => (sesio ? setSesion(sesio) : ""));
+  }, []);*/
+
+  /*const sessionCookies = () => {
+    //const ses = await getSession();
+    if (props.sesion != undefined && !checkCookies("sesio")) {
+      setCookies("sesio", props.sesion, {
+        maxAge: 60 * 60 * 24 * 30,
+      });
+    }
+  };
+
+  useEffect(() => {
+    sessionCookies();
   }, []);*/
 
   const toggleColorScheme = (value?: ColorScheme) => {
@@ -98,7 +111,7 @@ DocApp.getInitialProps = async ({
   ctx: GetServerSidePropsContext;
 }) => ({
   colorScheme: getCookie("mantine-color-scheme", ctx) || "light",
-  session: await getSession(),
+  session: getSession(ctx), //checkCookies("sesio") ? getCookie("sesio", ctx) : getSession(ctx),
 });
 /*
       <SessionProvider session={pageProps.session} refetchInterval={0}>
