@@ -153,7 +153,13 @@ export function NavbarSimple() {
     >
       <Navbar.Section grow>
         <Group className={classes.header} position="apart">
-          <Image src="/docappo2.png" width="161px" height="33px" alt="logo" />
+          <Image
+            src="/docappo2.png"
+            width="161px"
+            height="33px"
+            alt="logo"
+            priority
+          />
           <ActionIcon
             variant="outline"
             color={dark ? "yellow" : "blue"}

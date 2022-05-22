@@ -36,9 +36,15 @@ export function ArticleCardVertical({
 
   const image = `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${category.toLowerCase()}/${category.toLowerCase()}-original.svg`;
   return (
-    <Card withBorder radius="md" p={0} className={classes.card}>
-      <Group noWrap spacing={0}>
-        <Image src={image} height={100} width={100} alt={category} />
+    <Card withBorder shadow="sm" radius="md" p={0} className={classes.card}>
+      <Group noWrap spacing={2}>
+        <Image
+          src={image}
+          height={100}
+          width={100}
+          alt={category}
+          style={{ paddingLeft: "5%" }}
+        />
         <div className={classes.body}>
           <Text transform="uppercase" color="dimmed" weight={700} size="xs">
             {category}
