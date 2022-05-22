@@ -1,10 +1,10 @@
-import { Center, Grid } from "@mantine/core";
+import { Center, Grid, Title } from "@mantine/core";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { ArticleCardVertical } from "../../components/Cards";
 import Doc from "../../types/Doc";
 import styles from "../../styles/Spinner.module.css";
-import { Session } from "inspector";
+import TextEditor from "../../components/Editor";
 
 export const Inicio = () => {
   const { data } = useSession();
@@ -34,13 +34,9 @@ export const Inicio = () => {
     <div className={styles.loader} style={{ marginTop: "20%" }} />
   ) : (
     <>
-      <Center style={{ marginLeft: "-20%" }}>
-        <h2>Hola, {data?.user?.name}</h2>
-      </Center>
-      <Center style={{ marginLeft: "-20%" }}>
+      <Center style={{ marginLeft: "-20%", color: "#005555" }}>
         <h1>Tu lista de documentos</h1>
       </Center>
-      <br />
       <Grid style={{ padding: "2%" }}>
         {docus.map((doc: Doc) => {
           return (
@@ -56,6 +52,23 @@ export const Inicio = () => {
           );
         })}
       </Grid>
+      <br />
+      <Center style={{ marginLeft: "-20%", color: "#006565" }}>
+        <Title order={2}>Prueba el editor</Title>
+      </Center>
+      <Center>
+        <TextEditor
+          style={{
+            minHeight: "200px",
+            width: "67%",
+            margin: "2%",
+            marginLeft: "-10%",
+            marginBottom: "1%",
+          }}
+          value={""}
+          onChange={() => console.log()}
+        />
+      </Center>
     </>
   );
 };

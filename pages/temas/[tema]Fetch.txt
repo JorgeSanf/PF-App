@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Doc } from "../../types/Doc";
 
+import styles from "../../styles/Spinner.module.css";
+
 export default function Tema() {
   const router = useRouter();
   const { tema } = router.query;
@@ -23,7 +25,9 @@ export default function Tema() {
     });
   });
 
-  return (
+  return cargando ? (
+    <div className={styles.loader} style={{ marginTop: "20%" }} />
+  ) : (
     <>
       <Center style={{ marginLeft: "-20%" }}>
         <h2>Documentos sobre {tema}</h2>

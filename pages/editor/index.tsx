@@ -24,7 +24,7 @@ const Editor = () => {
           style={{
             //margin: "auto",
             marginLeft: "80px",
-            borderBottom: "solid 1px #00b4b4",
+            borderBottom: "solid 2px #00b4b4",
             paddingBottom: "2%",
             width: "80%",
           }}

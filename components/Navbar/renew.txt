@@ -149,6 +149,9 @@ export function NavbarSimple() {
       </a>
     </Link>
   ));
+  if (!session) {
+    return <></>;
+  }
   return (
     <Navbar
       //style={{ height: "full" }}
@@ -189,48 +192,44 @@ export function NavbarSimple() {
           </a>
         </Link>
       </Group>
-      {router.pathname.endsWith("[id]") ||
-      router.pathname.endsWith("[tema]") ? (
-        <></>
-      ) : (
-        <Navbar.Section className={classes.footer}>
-          {status == "authenticated" ? (
-            <>
-              <Link href={"/"}>
-                <a
-                //className={classes.link}
-                //onClick={(event) => event.preventDefault()}
-                >
-                  <UserButton
-                    image={data?.user?.image!}
-                    name={data?.user?.name!}
-                    email={data?.user?.email!}
-                  />
-                </a>
-              </Link>
+      <Navbar.Section className={classes.footer}>
+        {status == "authenticated" ? (
+          <>
+            <Link href={"/"}>
               <a
-                href="#"
-                className={classes.link}
-                onClick={() => signOut()}
-                //onClick={(event) => event.preventDefault()}
+              //className={classes.link}
+              //onClick={(event) => event.preventDefault()}
               >
-                <Logout className={classes.linkIcon} />
-                <span>Cerrar sesión</span>
-              </a>
-            </>
-          ) : (
-            <Link href={"/api/auth/signin"}>
-              <a
-                className={classes.link}
-                //onClick={(event) => event.preventDefault()}
-              >
-                <UserCircle className={classes.linkIcon} />
-                <span>Inicia sesión con GitHub</span>
+                <UserButton
+                  image={data?.user?.image!}
+                  name={data?.user?.name!}
+                  email={data?.user?.email!}
+                />
               </a>
             </Link>
-          )}
-        </Navbar.Section>
-      )}
+            <a
+              href="#"
+              className={classes.link}
+              onClick={() => signOut()}
+              //onClick={(event) => event.preventDefault()}
+            >
+              <Logout className={classes.linkIcon} />
+              <span>Cerrar sesión</span>
+            </a>
+          </>
+        ) : (
+          <Link href={"/api/auth/signin"}>
+            <a
+              className={classes.link}
+              //onClick={(event) => event.preventDefault()}
+            >
+              <UserCircle className={classes.linkIcon} />
+              <span>Inicia sesión con GitHub</span>
+            </a>
+          </Link>
+        )}
+      </Navbar.Section>
+      )
     </Navbar>
   );
 }

@@ -46,3 +46,19 @@ export async function getServerSideProps({ params }: any) {
     props: { docs: data },
   };
 }
+
+/*
+export async function getServerSideProps({ params, ctx }: any) {
+  const req = await fetch(
+    `https://pf-api-sp.azurewebsites.net/docus/api/tema/${params.tema}`
+  );
+  const data = await req.json();
+  const session = await getSession(ctx); //await getSession(ctx);
+
+  console.log("yopa", session);
+
+  return {
+    props: { session, docs: data },
+  };
+}
+*/
