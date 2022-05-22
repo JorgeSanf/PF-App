@@ -10,10 +10,28 @@ import {
 import { NavbarSimple } from "../components/Navbar";
 import { getSession, SessionProvider } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { getCookie, setCookies } from "cookies-next";
+import { checkCookies, getCookie, setCookies } from "cookies-next";
 import { GetServerSidePropsContext } from "next";
 import { Session } from "next-auth";
+import { JssProvider, createGenerateId } from "react-jss";
+import React from "react";
+import { useColorScheme } from "@mantine/hooks";
 
+interface DocProps extends AppProps {
+  colorScheme: ColorScheme;
+}
+
+/*export default function DocApp(
+  { Component, pageProps: { session, ...pageProps }, colorScheme }: DocProps //& { session: Session }
+) {
+  //const { Component, pageProps } = props;
+  const [colorSchema, setColorScheme] = useState<ColorScheme>(colorScheme);
+
+  //const [sesion, setSesion] = useState<Session>(pageProps.session);
+
+  /*useEffect(() => {
+    getSession().then((sesio) => (sesio ? setSesion(sesio) : ""));
+  }, []);*/
 export default function DocApp(
   props: AppProps & { colorScheme: ColorScheme; sesion: Session } //& { session: Session }
 ) {
@@ -21,11 +39,24 @@ export default function DocApp(
   const [colorScheme, setColorScheme] = useState<ColorScheme>(
     props.colorScheme
   );
-  const [sesion, setSesion] = useState<Session>(props.sesion);
+  //const [sesion, setSesion] = useState<Session>(props.sesion);
+
+  /*useEffect(() => {
+    getSession().then((sesio) => (sesio ? setSesion(sesio) : ""));
+  }, []);*/
+
+  /*const sessionCookies = () => {
+    //const ses = await getSession();
+    if (props.sesion != undefined && !checkCookies("sesio")) {
+      setCookies("sesio", props.sesion, {
+        maxAge: 60 * 60 * 24 * 30,
+      });
+    }
+  };
 
   useEffect(() => {
-    getSession().then((sesio) => (sesio ? setSesion(sesio) : ""));
-  }, []);
+    sessionCookies();
+  }, []);*/
 
   const toggleColorScheme = (value?: ColorScheme) => {
     const nextColorScheme =
@@ -41,6 +72,10 @@ export default function DocApp(
       <Head>
         <title>DocApp</title>
         <meta name="description" content="Aplicación documental" />
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
         <link rel="icon" href="/code.ico" />
       </Head>
 
@@ -70,11 +105,25 @@ export default function DocApp(
   );
 }
 
-DocApp.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
+DocApp.getInitialProps = async ({
+  ctx,
+}: {
+  ctx: GetServerSidePropsContext;
+}) => ({
   colorScheme: getCookie("mantine-color-scheme", ctx) || "light",
-  //session: getSession(),
+  session: getSession(ctx), //checkCookies("sesio") ? getCookie("sesio", ctx) : getSession(ctx),
 });
 /*
       <SessionProvider session={pageProps.session} refetchInterval={0}>
       </SessionProvider>
 */
+/*const sessionCookies = async () => {
+    const ses = await getSession();
+
+    if (ses != undefined) {
+      setCookies("sesio", props.sesion, {
+        maxAge: 60 * 60 * 24 * 30,
+      });
+    }
+  };
+  session: getCookie("sesio", ctx), //await getSession(),*/
