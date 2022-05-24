@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { ArticleCardVertical } from "../../components/Cards";
 import Doc from "../../types/Doc";
 import styles from "../../styles/Spinner.module.css";
-import TextEditor from "../../components/Editor";
+import { UserInfoAction as Perfil } from "../../components/Perfil";
 
 export const Inicio = () => {
   const { data } = useSession();
@@ -34,7 +34,12 @@ export const Inicio = () => {
     <div className={styles.loader} style={{ marginTop: "20%" }} />
   ) : (
     <>
-      <Center style={{ marginLeft: "-20%", color: "#005555" }}>
+      <br />
+      <Center>
+        <Perfil />
+      </Center>
+      <br />
+      <Center style={{ marginLeft: "-150px", color: "#005555" }}>
         <h1>Tu lista de documentos</h1>
       </Center>
       <Grid style={{ padding: "2%" }}>
@@ -52,23 +57,6 @@ export const Inicio = () => {
           );
         })}
       </Grid>
-      <br />
-      <Center style={{ marginLeft: "-20%", color: "#006565" }}>
-        <Title order={2}>Prueba el editor</Title>
-      </Center>
-      <Center>
-        <TextEditor
-          style={{
-            minHeight: "200px",
-            width: "67%",
-            margin: "2%",
-            marginLeft: "-10%",
-            marginBottom: "1%",
-          }}
-          value={""}
-          onChange={() => console.log()}
-        />
-      </Center>
     </>
   );
 };

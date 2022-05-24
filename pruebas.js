@@ -1,7 +1,7 @@
-data = ["juan", "pedro", "juanito"]  
+data = ["juan", "pedro", "juanito"];
 
 const linkTemas = data.map((item) => {
-    return { label: { item }, link: `/tema/${item}` };
+  return { label: { item }, link: `/tema/${item}` };
 });
-  
-console.log(linkTemas)
+
+console.log(linkTemas);

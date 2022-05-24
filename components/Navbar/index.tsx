@@ -28,6 +28,7 @@ import { Session } from "inspector";
 import { getServerSession } from "next-auth";
 import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 import { useRouter } from "next/router";
+import { GithubButton } from "../GitButton";
 //import { useViewportSize } from "@mantine/hooks";
 
 const useStyles = createStyles((theme, _params, getRef) => {
@@ -224,8 +225,7 @@ export function NavbarSimple() {
                 className={classes.link}
                 //onClick={(event) => event.preventDefault()}
               >
-                <UserCircle className={classes.linkIcon} />
-                <span>Inicia sesión con GitHub</span>
+                <GithubButton>Login with GitHub</GithubButton>
               </a>
             </Link>
           )}

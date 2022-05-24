@@ -8,31 +8,33 @@ export default function Tema({ docs }: { docs: Array<Doc> }) {
   const { id } = router.query;
 
   return (
-    <>
+    <div style={{ margin: "10px" }}>
       <Center style={{ marginLeft: "-20%" }}>
         <h2>Documentos sobre {docs[0].tema}</h2>
       </Center>
-      <Grid>
-        {docs.map((doc) => {
-          return (
-            <Grid.Col span={3} key={doc.id}>
-              <a href={"/documentos/" + doc.id}>
-                <div
-                  style={{
-                    paddingLeft: "20px",
-                    border: "solid 1px #dfe3ee",
-                    borderRadius: "5px",
-                  }}
-                >
-                  <h3>{doc.titulo}</h3>
-                  <p>{doc.autor}</p>
-                </div>
-              </a>
-            </Grid.Col>
-          );
-        })}
-      </Grid>
-    </>
+      <div style={{ margin: "10px" }}>
+        <Grid>
+          {docs.map((doc) => {
+            return (
+              <Grid.Col span={3} key={doc.id}>
+                <a href={"/documentos/" + doc.id}>
+                  <div
+                    style={{
+                      paddingLeft: "20px",
+                      border: "solid 1px #dfe3ee",
+                      borderRadius: "5px",
+                    }}
+                  >
+                    <h3>{doc.titulo}</h3>
+                    <p>{doc.autor}</p>
+                  </div>
+                </a>
+              </Grid.Col>
+            );
+          })}
+        </Grid>
+      </div>
+    </div>
   );
 }
 

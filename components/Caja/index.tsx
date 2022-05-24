@@ -2,6 +2,7 @@ import { Alert, Box, Button, Modal, TextInput } from "@mantine/core";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { Guardar } from "../../functions/guardar";
+import { TagPicker } from "../Input";
 
 export default function Caja({
   html,
@@ -43,21 +44,14 @@ export default function Caja({
       </Button>
       <br />
       <TextInput
-        style={{ width: "90%" }}
+        style={{ marginBottom: "10px" }}
         variant="default"
         placeholder={titol}
         onChange={(e) => {
           setTitol(e.target.value);
         }}
       />
-      <TextInput
-        style={{ width: "90%", marginTop: "20px" }}
-        variant="default"
-        placeholder={topic}
-        onChange={(e) => {
-          setTopic(e.target.value);
-        }}
-      />
+      <TagPicker />
       <Modal
         opened={opened}
         onClose={() => {
@@ -70,3 +64,14 @@ export default function Caja({
     </div>
   );
 }
+
+/*
+      <TextInput
+        style={{ width: "90%", marginTop: "20px" }}
+        variant="default"
+        placeholder={topic}
+        onChange={(e) => {
+          setTopic(e.target.value);
+        }}
+      />
+*/

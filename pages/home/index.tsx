@@ -11,7 +11,7 @@ export default function Home() {
   }
   return (
     <>
-      <NoLogin />
+      <FeaturesTitle />
     </>
   );
 }
@@ -36,8 +36,9 @@ import { InferGetServerSidePropsType } from "next";
 import { CtxOrReq } from "next-auth/client/_utils";
 import { getCsrfToken, getProviders } from "next-auth/react";
 import Image from "next/image";
+import { FeaturesTitle } from "./NoLogin";
 
-const NoLogin = () => {
+/*const NoLogin = () => {
   return (
     <div
       style={{
@@ -55,7 +56,7 @@ const NoLogin = () => {
       </div>
     </div>
   );
-};
+};*/
 
 //export default Signin;
 
