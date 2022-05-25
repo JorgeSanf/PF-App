@@ -16,6 +16,7 @@ import {
   FileCode,
   MoonStars,
   Sun,
+  Book,
 } from "tabler-icons-react";
 //import { Logo } from "./Logo";
 import React, { useState } from "react";
@@ -118,6 +119,7 @@ const items = [
   { link: "/editor", label: "Editor", icon: Edit },
   { link: "/loading", label: "Documentos", icon: Notes },
   { link: "/temas", label: "Temas", icon: FileCode },
+  { link: "/muro", label: "Muro", icon: Book },
 ];
 
 export function NavbarSimple() {
@@ -220,14 +222,7 @@ export function NavbarSimple() {
               </a>
             </>
           ) : (
-            <Link href={"/api/auth/signin"}>
-              <a
-                className={classes.link}
-                //onClick={(event) => event.preventDefault()}
-              >
-                <GithubButton>Login with GitHub</GithubButton>
-              </a>
-            </Link>
+            <GithubButton>Login with GitHub</GithubButton>
           )}
         </Navbar.Section>
       )}
