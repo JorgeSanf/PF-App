@@ -4,6 +4,7 @@ import { Container } from "tabler-icons-react";
 //import { ModalGuardar } from "./../../components/Modal";
 import Caja from "../../components/Caja";
 import { useSession } from "next-auth/react";
+import { Divider } from "@mantine/core";
 
 //import { RichTextEditor } from "@mantine/rte";
 
@@ -24,13 +25,14 @@ const Editor = () => {
           style={{
             //margin: "auto",
             marginLeft: "80px",
-            borderBottom: "solid 2px #00b4b4",
+            borderBottom: "solid 1px #00b4b4",
             paddingBottom: "2%",
             width: "80%",
           }}
         >
           <h1 style={{ marginLeft: "33%" }}>Crea un documento</h1>
           <Caja html={value} onClickGuardar={onClickGuardar} />
+          {/*<Divider my="md" /> */}
         </div>
       ) : (
         <br />

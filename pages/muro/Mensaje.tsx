@@ -18,12 +18,12 @@ const useStyles = createStyles((theme) => ({
   },
 
   head: {
-    paddingLeft: theme.spacing.md,
+    paddingLeft: theme.spacing.xs,
   },
 
   comment: {
     padding: `${theme.spacing.md}px ${theme.spacing.md}px`,
-    width: "100%",
+    width: "80%",
   },
 }));
 
