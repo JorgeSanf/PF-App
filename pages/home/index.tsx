@@ -2,6 +2,11 @@ import { Title } from "@mantine/core";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Inicio from "./inicio";
 import styles from "../../styles/Signin.module.css";
+import { InferGetServerSidePropsType } from "next";
+import { CtxOrReq } from "next-auth/client/_utils";
+import { getCsrfToken, getProviders } from "next-auth/react";
+import Image from "next/image";
+import FeaturesTitle from "./NoLogin";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -32,11 +37,6 @@ export default function Home() {
     </>
   );
 */
-import { InferGetServerSidePropsType } from "next";
-import { CtxOrReq } from "next-auth/client/_utils";
-import { getCsrfToken, getProviders } from "next-auth/react";
-import Image from "next/image";
-import { FeaturesTitle } from "./NoLogin";
 
 /*const NoLogin = () => {
   return (

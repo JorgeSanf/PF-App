@@ -4,7 +4,7 @@ import recuperarMensajes from "../../functions/mensajes";
 import { Mensaje } from "../../types/Mensaje";
 import MensajeSimple from "./Mensaje";
 
-export default function () {
+export default function Muro() {
   const [mensajes, setMensajes] = useState<Array<Mensaje>>([]);
 
   useEffect(() => {
