@@ -23,14 +23,9 @@ const Editor = () => {
       {session ? (
         <div
           style={{
-            //margin: "auto",
-            marginLeft: "80px",
-            borderBottom: "solid 1px #00b4b4",
-            paddingBottom: "2%",
-            width: "80%",
+            margin: "auto",
           }}
         >
-          <h1 style={{ marginLeft: "33%" }}>Crea un documento</h1>
           <Caja html={value} onClickGuardar={onClickGuardar} />
           {/*<Divider my="md" /> */}
         </div>
@@ -39,11 +34,10 @@ const Editor = () => {
       )}
       <TextEditor
         style={{
-          minHeight: "75%",
-          width: "67%",
-          margin: "5%",
-          marginLeft: "10%",
-          marginBottom: "1%",
+          minHeight: "100%",
+          width: "80%",
+          margin: "auto",
+          marginBottom: "5%",
         }}
         value={value}
         onChange={onChange}

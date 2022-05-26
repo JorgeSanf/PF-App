@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { Guardar } from "../../functions/guardar";
 import { TagPicker } from "../Input";
+import styles from "../../styles/Home.module.css";
 
 export default function Caja({
   html,
@@ -23,35 +24,40 @@ export default function Caja({
   };
 
   return (
-    <div
-      style={{
-        width: "50%",
-        margin: "auto",
-        marginBottom: "20px",
-        marginLeft: "18%",
-      }}
-    >
-      <Button
-        style={{ float: "right", marginTop: "50px", marginRight: "-18%" }}
-        onClick={() => {
-          Guardar({ titol, topic, html, username });
-          setOpened(true);
-          estadoInicial();
-          onClickGuardar();
-        }}
-      >
-        Enviar
-      </Button>
+    <div className={styles.caja}>
+      <h1 style={{ margin: "auto", textAlign: "center" }}>Crea un documento</h1>
       <br />
-      <TextInput
-        style={{ marginBottom: "10px" }}
-        variant="default"
-        placeholder={titol}
-        onChange={(e) => {
-          setTitol(e.target.value);
-        }}
-      />
-      <TagPicker />
+      <div style={{ paddingLeft: "15%", paddingRight: "15%" }}>
+        <Button
+          style={{ float: "right", marginRight: "2%", marginTop: "2%" }}
+          onClick={() => {
+            Guardar({ titol, topic, html, username });
+            setOpened(true);
+            estadoInicial();
+            onClickGuardar();
+          }}
+        >
+          Enviar
+        </Button>
+        <TextInput
+          style={{ marginBottom: "10px", width: "70%" }}
+          variant="default"
+          placeholder={titol}
+          onChange={(e) => {
+            setTitol(e.target.value);
+          }}
+        />
+        <TextInput
+          style={{ marginBottom: "10px", width: "70%" }}
+          variant="default"
+          placeholder={topic}
+          onChange={(e) => {
+            setTopic(e.target.value);
+          }}
+        />
+      </div>
+      {/*<TagPicker />*/}
+
       <Modal
         opened={opened}
         onClose={() => {
