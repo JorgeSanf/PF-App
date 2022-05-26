@@ -39,19 +39,17 @@ const features = [
     icon: ReceiptOff,
     title: "Documentos libres y gratuitos",
     description:
-      "All packages are published under MIT license, you can use Mantine in any project",
+      "Los documentos de este sitio están abiertos para todo el mundo",
   },
   {
     icon: FileCode,
-    title: "Basado en TypeScript",
-    description:
-      "Build type safe applications, all components and hooks export types",
+    title: "Centrado en la lectura",
+    description: "Evite distracciones con una interfaz simple y limpia",
   },
   {
     icon: Moon,
     title: "Modo noche",
-    description:
-      "With new :focus-visible selector focus ring will appear only when user navigates with keyboard",
+    description: "Para evitar molestias en los ojos",
   },
   {
     icon: Flame,
@@ -85,17 +83,13 @@ export default function FeaturesTitle() {
 
   return (
     <div className={classes.wrapper}>
-      <Grid gutter={80}>
-        <Center>
-          <Col span={12} md={8}>
+      <Grid gutter={100}>
+        <div style={{ margin: "auto" }}>
+          <Col span={12} md={12}>
             <Title className={classes.title} order={2}>
               Página construida con Next.js, React
             </Title>
-            <Text color="dimmed">
-              Build fully functional accessible web applications faster than
-              ever – Mantine includes more than 120 customizable components and
-              hooks to cover you in any situation
-            </Text>
+            <Text color="dimmed">TypeScript, Mantine...</Text>
 
             <Button
               variant="gradient"
@@ -107,9 +101,9 @@ export default function FeaturesTitle() {
               Inicie sesión
             </Button>
           </Col>
-        </Center>
-        <Center>
-          <Col span={12} md={7}>
+        </div>
+        <div style={{ margin: "auto" }}>
+          <Col span={12} md={15}>
             <SimpleGrid
               cols={2}
               spacing={30}
@@ -118,7 +112,7 @@ export default function FeaturesTitle() {
               {items}
             </SimpleGrid>
           </Col>
-        </Center>
+        </div>
       </Grid>
     </div>
   );

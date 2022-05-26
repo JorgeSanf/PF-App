@@ -40,7 +40,7 @@ export default function Caja({
           Enviar
         </Button>
         <TextInput
-          style={{ marginBottom: "10px", width: "70%" }}
+          style={{ marginBottom: "10px", width: "80%" }}
           variant="default"
           placeholder={titol}
           onChange={(e) => {
@@ -48,7 +48,7 @@ export default function Caja({
           }}
         />
         <TextInput
-          style={{ marginBottom: "10px", width: "70%" }}
+          style={{ marginBottom: "10px", width: "80%" }}
           variant="default"
           placeholder={topic}
           onChange={(e) => {
