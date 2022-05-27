@@ -39,7 +39,10 @@ export const Inicio = () => {
         <Perfil />
       </Center>
       <br />
-      <Center style={{ marginLeft: "-150px", color: "#005555" }}>
+      <Center style={{ marginLeft: "-150px" }}>
+        {
+          //, color: "#005555" }}
+        }
         <h1>Tu lista de documentos</h1>
       </Center>
       <Grid style={{ padding: "2%" }}>

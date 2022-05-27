@@ -17,10 +17,14 @@ import {
   FileCode,
   Moon,
 } from "tabler-icons-react";
+import Image from "next/image";
+import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    margin: "5%",
+    margin: "3%",
+    marginLeft: "-2%",
     //padding: `${theme.spacing.xl * 2}px ${theme.spacing.xl}px`,
   },
 
@@ -83,23 +87,29 @@ export default function FeaturesTitle() {
 
   return (
     <div className={classes.wrapper}>
+      <Center style={{ marginBottom: "30px" }}>
+        <Image src={"/docappo.png"} width="483" height="99" priority></Image>
+      </Center>
       <Grid gutter={100}>
         <div style={{ margin: "auto" }}>
           <Col span={12} md={12}>
-            <Title className={classes.title} order={2}>
+            <Title className={classes.title} order={6}>
               Página construida con Next.js, React
             </Title>
-            <Text color="dimmed">TypeScript, Mantine...</Text>
+            <div style={{ textAlign: "center" }}>
+              <Text color="dimmed">TypeScript, Mantine...</Text>
 
-            <Button
-              variant="gradient"
-              gradient={{ deg: 133, from: "blue", to: "cyan" }}
-              size="lg"
-              radius="md"
-              mt="xl"
-            >
-              Inicie sesión
-            </Button>
+              <Button
+                variant="gradient"
+                gradient={{ deg: 133, from: "blue", to: "cyan" }}
+                size="lg"
+                radius="md"
+                mt="xl"
+                onClick={() => signIn()}
+              >
+                Inicie sesión
+              </Button>
+            </div>
           </Col>
         </div>
         <div style={{ margin: "auto" }}>

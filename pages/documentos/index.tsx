@@ -12,7 +12,7 @@ export default function ListaDocumentos({ docs }: ListaDocsProps) {
   return (
     <>
       <Center
-        style={{ marginLeft: "-125px", marginBottom: "2%", color: "#004040" }}
+        style={{ marginLeft: "-125px", marginBottom: "2%" }} //, color: "#004040" }}
       >
         <Title order={1}>Lista de docs</Title>
       </Center>

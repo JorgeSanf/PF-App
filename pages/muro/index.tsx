@@ -29,9 +29,12 @@ export default function Muro() {
       <div
         style={{
           position: "fixed",
-          bottom: "1%",
+          bottom: "5%",
           zIndex: "1",
           left: "35%",
+          boxShadow: "0px 0px 10px 0px rgb(200, 200, 200)",
+          borderRadius: "10px",
+          border: "1px solid rgb(210, 210, 210)",
         }}
       >
         {
@@ -53,7 +56,7 @@ export default function Muro() {
           //onImageUpload={handleImageUpload}
         />
         <Button
-          style={{ position: "relative", left: "45%" }}
+          style={{ position: "relative", left: "45%", marginBottom: "5px" }}
           onClick={() => {
             //Guardar({ titol, topic, html, username });
             //setOpened(true);
