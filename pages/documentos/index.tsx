@@ -1,5 +1,5 @@
 import { Center, Grid, Title } from "@mantine/core";
-import { Doc } from "../../types/Doc";
+import { Doc } from "../types";
 import { ArticleCardVertical } from "./../../components/Cards";
 
 interface ListaDocsProps {
