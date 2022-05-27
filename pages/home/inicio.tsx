@@ -2,7 +2,7 @@ import { Center, Grid, Title } from "@mantine/core";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { ArticleCardVertical } from "../../components/Cards";
-import Doc from "../../types/Doc";
+import { Doc } from "../types";
 import styles from "../../styles/Spinner.module.css";
 import { UserInfoAction as Perfil } from "../../components/Perfil";
 

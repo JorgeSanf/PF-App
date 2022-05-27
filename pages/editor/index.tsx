@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import TextEditor from "../../components/Editor";
 import { Container } from "tabler-icons-react";
 //import { ModalGuardar } from "./../../components/Modal";
 import Caja from "../../components/Caja";
 import { useSession } from "next-auth/react";
 import { Divider } from "@mantine/core";
+//import { Editor } from "@mantine/rte";
 
 //import { RichTextEditor } from "@mantine/rte";
 
 const Editor = () => {
-  const initialValue = "<p><i>Comparta su <b>sabiduría</b>...</i></p>";
-  const [value, onChange] = useState(initialValue);
+  const initialValue = "";
+  const [value, onChange] = useState(""); //(initialValue)
   //const [titulo, setTitulo] = useState("");
   const onClickGuardar = () => {
     onChange(initialValue);
@@ -32,17 +33,32 @@ const Editor = () => {
       ) : (
         <br />
       )}
-      <TextEditor
-        style={{
-          minHeight: "100%",
-          width: "80%",
-          margin: "auto",
-          marginBottom: "5%",
-        }}
-        value={value}
-        onChange={onChange}
-        //onImageUpload={handleImageUpload}
-      />
+      <div>
+        <TextEditor
+          style={{
+            ...{
+              width: "80%",
+              margin: "auto",
+              marginBottom: "5%",
+              height: "fill",
+            },
+            ...(!session
+              ? { minHeight: "720px", marginTop: "4%" }
+              : { minHeight: "580px" }),
+          }}
+          placeholder={"Comparta su sabiduría..."}
+          value={value}
+          onChange={onChange}
+          controls={[
+            ["bold", "italic", "underline", "strike", "clean"],
+            ["h1", "h2", "h3", "h4"],
+            ["code", "blockquote", "link"],
+            ["sup", "sub", "unorderedList"],
+            ["alignLeft", "alignCenter", "alignRight"],
+          ]}
+          //onImageUpload={handleImageUpload}
+        />
+      </div>
     </>
   );
 };

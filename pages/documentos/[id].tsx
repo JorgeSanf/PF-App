@@ -2,7 +2,7 @@ import { Container, Title, TypographyStylesProvider } from "@mantine/core";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { json } from "stream/consumers";
-import { Doc } from "../../types/Doc";
+import { Doc } from "../types";
 import Image from "next/image";
 
 type docHTML = {

@@ -1,7 +1,7 @@
 import { Center, Grid } from "@mantine/core";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Doc } from "../../types/Doc";
+import { Doc } from "../types";
 
 export default function Tema({ docs }: { docs: Array<Doc> }) {
   const router = useRouter();

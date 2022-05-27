@@ -10,7 +10,7 @@ import {
   Divider,
 } from "@mantine/core";
 import { useSession } from "next-auth/react";
-import { Mensaje } from "../../types/Mensaje";
+import { Mensaje } from "../types";
 
 const useStyles = createStyles((theme) => ({
   comment: {
